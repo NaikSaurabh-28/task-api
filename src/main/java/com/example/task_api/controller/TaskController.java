@@ -27,6 +27,11 @@ public class TaskController {
         return taskService.addTask(request.get("title"));
     }
 
+    @GetMapping("/tasks/count")
+    public Map<String, Integer> getTaskCount() {
+        return Map.of("count", taskService.getAllTasks().size());
+    }
+
     @GetMapping("/health")
     public Map<String, String> health() {
         return Map.of("status", "UP");
